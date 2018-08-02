@@ -2,6 +2,7 @@ package utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -31,6 +32,7 @@ public class Wait   {
     public static void waitElementIsPresent(WebDriver driver, By locator){
         WebDriverWait webDriverWait = new WebDriverWait(driver, TIMEOUT);
         webDriverWait.
+                ignoring(StaleElementReferenceException.class).
                 until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 

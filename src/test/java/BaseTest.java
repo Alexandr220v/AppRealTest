@@ -17,7 +17,7 @@ public class BaseTest {
     protected WebDriver getDriver(String browser) {
 
         if(browser.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "/home/user/drivers/chromedriver");
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\oleksandr.pavliuk\\Desktop\\project\\chromedriver\\\\chromedriver.exe");
             driver = new ChromeDriver();
         }
         else if(browser.equals("firefox")) {
@@ -29,6 +29,7 @@ public class BaseTest {
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.navigate().to("https://www.skyscanner.net/");
         return driver;
     }
 

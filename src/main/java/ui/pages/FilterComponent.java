@@ -13,12 +13,8 @@ public class FilterComponent {
     private WebElement oneStop;
     @FindBy(xpath = "//li[@data-id='two_plus_stops']//input")
     private WebElement twoPlusStop;
-    @FindBy(xpath = "//button/span[text()='Best']")
-    private WebElement best;
-    @FindBy(xpath = "//button/span[text()='Cheapest']")
-    private WebElement chipest;
-    @FindBy(xpath = "//button/span[text()='Fastest']")
-    private WebElement fastest;
+
+
 
 
 }

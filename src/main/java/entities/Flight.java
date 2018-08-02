@@ -1,13 +1,14 @@
 package entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Flight {
 
     private String destinationFrom;
     private String destinationTo;
-    private Date departDate;
-    private Date returnDate;
+    private LocalDate departDate;
+    private LocalDate returnDate;
     private int adultNumber;
     private int childrenNumber;
     private String cabinClass;
@@ -38,19 +39,19 @@ public class Flight {
         this.destinationTo = destinationTo;
     }
 
-    public Date getDepartDate() {
+    public LocalDate getDepartDate() {
         return departDate;
     }
 
-    public void setDepartDate(Date departDate) {
+    public void setDepartDate(LocalDate departDate) {
         this.departDate = departDate;
     }
 
-    public Date getReturnDate() {
+    public LocalDate getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(LocalDate returnDate) {
         this.returnDate = returnDate;
     }
 
@@ -127,8 +128,8 @@ public class Flight {
 
         private String destinationFrom;
         private String destinationTo;
-        private Date departDate;
-        private Date returnDate;
+        private LocalDate departDate;
+        private LocalDate returnDate;
         private int adultNumber;
         private int childrenNumber;
         private String cabinClass;
@@ -154,11 +155,11 @@ public class Flight {
             this.destinationTo = destinationTo;
             return  this;
         }
-        public Builder departDate(Date departDate) {
+        public Builder departDate(LocalDate departDate) {
             this.departDate = departDate;
             return  this;
         }
-        public Builder returnDate(Date returnDate) {
+        public Builder returnDate(LocalDate returnDate) {
             this.returnDate = returnDate;
             return  this;
         }
