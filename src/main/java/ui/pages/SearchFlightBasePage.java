@@ -62,7 +62,7 @@ public class SearchFlightBasePage extends  GeneralPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void fillSearchFlightForm(Flight flight) {
+    public void fillSearchForm(Flight flight) {
         inputFrom(flight.getDestinationFrom());
         inputTo(flight.getDestinationTo());
         inputDepartDate(flight.getDepartDate());
@@ -105,11 +105,7 @@ public class SearchFlightBasePage extends  GeneralPage {
     }
 
     public SearchFlightBasePage inputReturnDate(LocalDate date) {
-        String selectMonth = new StringBuilder().
-                append(date.getYear()).
-                append("-").
-                append(date.getMonthValue()).
-                toString();
+        String selectMonth = new StringBuilder().append(date.getYear()).append("-").append(date.getMonthValue()).toString();
         returnDate.click();
         Wait.waitElementIsPresent(driver,By.id("return-fsc-datepicker-input-popover"));
         Select month = new Select(returnmonthId);

@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="appreal (1) (com.appreal.android)" />
         <module name="appreal (2) (com.appreal)" />
         <module name="AppRealMobile" />
         <module name="AppRealWeb" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="appreal (1) (com.appreal.android)" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

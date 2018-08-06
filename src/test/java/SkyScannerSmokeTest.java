@@ -19,7 +19,7 @@ public class SkyScannerSmokeTest  extends BaseTest {
                 childrenNumber(3).
                 build();
         SearchFlightBasePage flightBasePage = new SearchFlightBasePage(getDriver("chrome"));
-        flightBasePage.fillSearchFlightForm(flight);
+        flightBasePage.fillSearchForm(flight);
         Thread.sleep(3000);
 
     }
