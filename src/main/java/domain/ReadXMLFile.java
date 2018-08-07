@@ -1,36 +1,35 @@
 package domain;
 
+import com.thoughtworks.xstream.XStream;
+import entities.xml.Ban;
+import entities.xml.Data;
+import entities.xml.Person;
 import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 public class ReadXMLFile {
 
 
     public static void main(String[] args) {
 
+        FileReader reader = null;  // load file
         try {
-
-            File file = new File("/Users/mkyong/staff.xml");
-
-            DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance()
-                    .newDocumentBuilder();
-
-            Document doc = dBuilder.parse(file);
-
-            System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-
-            if (doc.hasChildNodes()) {
-
-                printNote(doc.getChildNodes());
-
-            }
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            reader = new FileReader("C:\\Users\\oleksandr.pavliuk\\IdeaProjects\\AppRealTest\\src\\main\\resources\\xml\\example.xml");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
+
+        XStream xstream = new XStream();
+        xstream.processAnnotations(Data.class);     // inform XStream to parse annotations in Data class
+        xstream.processAnnotations(Ban.class);      // and in two other classes...
+        xstream.processAnnotations(Person.class);   // we use for mappings
+        Data data = (Data) xstream.fromXML(reader); // parse
+
 
     }
 

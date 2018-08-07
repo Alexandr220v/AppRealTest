@@ -16,8 +16,6 @@ public class FlightReturnPage extends FlightResultListComponent {
     @FindBy(xpath = "//*[starts-with(@class,'ItineraryLeg__leg-summary-details')]")
     private WebElement flightSummaryDetailsSection;
 
-
-
     public FlightReturnPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver,this);
@@ -25,25 +23,28 @@ public class FlightReturnPage extends FlightResultListComponent {
 
     public FlightDashboard getFlightInfoOutbound () {
 
-        WebElement logo = getFlightLogos().get(0);
-        WebElement departTime = getFlightDepartTimes().get(0);
-        WebElement arrivalTime = getFlightArrivalTimes().get(0);
+        String logoFlightTo = flightInfoSection.findElements(airlineLogo).get(0).getText();
+        String departTimeFlightTo = flightInfoSection.findElements(departTime).get(0).getText();
+        String arrivalTimeFlightTo = flightInfoSection.findElements(arrivalTime).get(0).getText();
 
-        return new FlightDashboard.Builder().
+        return new FlightDashboard.Builder()
+                .departLogoFlightTo(logoFlightTo)
+                .departTimeFlightTo(departTimeFlightTo)
+                .arrivalTimeFlightTo(arrivalTimeFlightTo)
+                .build();
     }
 
     public FlightDashboard getFlightInfoReturn () {
 
-        String logo = flightInfoSection.findElement(By.xpath(""))getFlightLogos().get(1).getText();
-        String departTime = getFlightDepartTimes().get(1).getText();
-        String arrivalTime = getFlightArrivalTimes().get(1).getText();
+        String logoFlightBack = flightInfoSection.findElements(airlineLogo).get(1).getText();
+        String departTimeFlightBack = flightInfoSection.findElements(departTime).get(1).getText();
+        String arrivalTimeFlightBack = flightInfoSection.findElements(arrivalTime).get(1).getText();
 
-        return new FlightDashboard.
-                Builder().
-                departLogoFlightTo(flightInfoSection.)
+        return new FlightDashboard.Builder()
+                .departLogoFlightBack(logoFlightBack)
+                .departTimeFlightBack(departTimeFlightBack)
+                .drrivalTimeFlightBack(arrivalTimeFlightBack)
+                .build();
     }
 
-    public  FlightDashboard getFlights () {
-        flightInfoSection.
-    }
 }

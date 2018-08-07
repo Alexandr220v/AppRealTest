@@ -15,6 +15,27 @@ public class FilterComponent {
     private WebElement twoPlusStop;
 
 
+    public void setDepartTimeOutbound (String time) {
+        setSliderPosition();
+    }
+
+    public void setArrivalTimeOutbound (String time) {
+        setSliderPosition();
+    }
+
+    public void setDepartTimeReturn (String time) {
+        setSliderPosition();
+    }
+
+    public void setArrivalTimeReturn (String time) {
+        setSliderPosition();
+    }
+
+    public void setJourneyDuration (String time) {
+        setSliderPosition();
+    }
+
+
 
 
 }

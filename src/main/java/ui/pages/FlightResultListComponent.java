@@ -25,10 +25,10 @@ public class FlightResultListComponent {
     @FindBy(xpath = "//li[starts-with(@class,'day-list-item ItinerariesContainer')]")
     private WebElement flightListTable;
 
-    private By airlineLogo = By.xpath("//*[starts-with(@class,'Leg__itinerary')]//*[starts-with(@class,'AirlineLogo__airline')]");
-    private By departTime = By.xpath("//div[starts-with(@class,'LegInfo__leg-depart')]/span[starts-with(@class,'LegInfo__times')]");
-    private By arrivalTime = By.xpath("//div[starts-with(@class,'LegInfo__leg-arrive-')]/span[starts-with(@class,'LegInfo__times')]");
-    private By  flightPrice = By.xpath("//*[@data-e2e='itinerary-price']");
+    protected By airlineLogo = By.xpath("//*[starts-with(@class,'Leg__itinerary')]//*[starts-with(@class,'AirlineLogo__airline')]");
+    protected By departTime = By.xpath("//div[starts-with(@class,'LegInfo__leg-depart')]/span[starts-with(@class,'LegInfo__times')]");
+    protected By arrivalTime = By.xpath("//div[starts-with(@class,'LegInfo__leg-arrive-')]/span[starts-with(@class,'LegInfo__times')]");
+    protected By  flightPrice = By.xpath("//*[@data-e2e='itinerary-price']");
 
     @FindBy(xpath = "//button[starts-with(@class,'bpk-button CTASection')]")
     private List<WebElement> select;
