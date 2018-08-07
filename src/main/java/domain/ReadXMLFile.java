@@ -19,7 +19,7 @@ public class ReadXMLFile {
 
         FileReader reader = null;  // load file
         try {
-            reader = new FileReader("C:\\Users\\oleksandr.pavliuk\\IdeaProjects\\AppRealTest\\src\\main\\resources\\xml\\example.xml");
+            reader = new FileReader("\\resources\\xml\\example.xml");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -28,7 +28,7 @@ public class ReadXMLFile {
         xstream.processAnnotations(Data.class);     // inform XStream to parse annotations in Data class
         xstream.processAnnotations(Ban.class);      // and in two other classes...
         xstream.processAnnotations(Person.class);   // we use for mappings
-        Data data = (Data) xstream.fromXML(reader); // parse
+
 
 
     }

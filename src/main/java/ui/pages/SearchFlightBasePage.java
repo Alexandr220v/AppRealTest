@@ -57,6 +57,8 @@ public class SearchFlightBasePage extends  GeneralPage {
     @FindBy(css = "[class*='SubmitButton']")
     private WebElement searchFlight;
 
+    private By progressbar = By.xpath("//div[@class='day-list-progress' and contains(@style,'width: 100%')]");
+
     public SearchFlightBasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -71,7 +73,7 @@ public class SearchFlightBasePage extends  GeneralPage {
         selectAdults(flight);
         selectChildrensAndSetAges(flight);
         searchFlight.click();
-        waitForSpinnerAreNotPresent(driver);
+        Wait.waitElementIsPresent(driver, progressbar);
     }
 
     public SearchFlightBasePage inputFrom(String city) {

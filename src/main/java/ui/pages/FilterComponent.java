@@ -1,8 +1,13 @@
 package ui.pages;
 
+import net.sf.cglib.core.Local;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class FilterComponent {
 
@@ -14,28 +19,14 @@ public class FilterComponent {
     @FindBy(xpath = "//li[@data-id='two_plus_stops']//input")
     private WebElement twoPlusStop;
 
-
-    public void setDepartTimeOutbound (String time) {
-        setSliderPosition();
-    }
-
-    public void setArrivalTimeOutbound (String time) {
-        setSliderPosition();
-    }
-
-    public void setDepartTimeReturn (String time) {
-        setSliderPosition();
-    }
-
-    public void setArrivalTimeReturn (String time) {
-        setSliderPosition();
-    }
-
-    public void setJourneyDuration (String time) {
-        setSliderPosition();
+    public FilterComponent(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
 
-
-
+    public void setDepartTimeOutbound (int pos) {
+        Slider slider = new Slider(driver);
+        slider.setSliderPosition(pos);
+    }
 }

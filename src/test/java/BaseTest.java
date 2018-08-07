@@ -17,19 +17,19 @@ public class BaseTest {
     protected WebDriver getDriver(String browser) {
 
         if(browser.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "C:\\Users\\oleksandr.pavliuk\\Desktop\\project\\chromedriver\\\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("chromedriver"));
             driver = new ChromeDriver();
         }
         else if(browser.equals("firefox")) {
-            System.setProperty("webdriver.gecko.driver", "/home/user/drivers/geckodriver");
+            System.setProperty("webdriver.gecko.driver", System.getProperty("firefoxdriver"));
             driver = new FirefoxDriver();
         } else if (browser.equals("edge")) {
-            System.setProperty("webdriver.gecko.driver", "/home/user/drivers/MicrosoftWebDriver");
+            System.setProperty("webdriver.gecko.driver", System.getProperty("iedriver"));
             driver = new InternetExplorerDriver();
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.navigate().to("https://www.skyscanner.net/");
+        driver.navigate().to(System.getProperty("url"));
         return driver;
     }
 

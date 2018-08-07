@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class Slider {
 
@@ -22,7 +23,10 @@ public class Slider {
     @FindBy(xpath = "//*[@data-id='duration']//dd[starts-with(@class,'filter-opts slider-opts')]")
     private WebElement journeyDurationTo;
 
-
+    public Slider(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
 
 
 
@@ -61,8 +65,8 @@ public class Slider {
     public Integer getCurrentPosition() {
         // Позицию можно получить по значению атрибута left
         // getCssValue("left") возвращает абсолютное значение в px,
-        Integer sliderCenter = Integer.parseInt(slider.getCssValue("left")
-                .replaceAll("%", "")) + slider.getSize().width / 48;
+        Integer sliderCenter = Integer.parseInt(sliderHandlerFrom.getCssValue("left")
+                .replaceAll("%", "")) + sliderHandlerFrom.getSize().width / 48;
 
         return sliderCenter / getStep() + 1;
     }
@@ -80,8 +84,10 @@ public class Slider {
         }
         Integer xOffset = (position - getCurrentPosition()) * getStep();
         Actions actions = new Actions(driver);
-        actions.dragAndDropBy(slider, xOffset, 0).perform();
+        actions.dragAndDropBy(sliderHandlerFrom, xOffset, 0).perform();
     }
+
+
 
 
 }
